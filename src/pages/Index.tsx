@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
 import Icon from '@/components/ui/icon';
 import { toast } from 'sonner';
 
@@ -135,51 +135,42 @@ const Index = () => {
             <p className="text-muted-foreground text-lg">Выберите стиль, который подходит вашему интерьеру</p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-8">
-              <TabsTrigger value="all">Все</TabsTrigger>
-              <TabsTrigger value="classic">Классика</TabsTrigger>
-              <TabsTrigger value="modern">Модерн</TabsTrigger>
-              <TabsTrigger value="minimalist">Минимализм</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="all" className="mt-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  { title: 'Классические портьеры', desc: 'Тяжелые ткани с драпировкой', price: 'от 25 000 ₽', style: 'classic' },
-                  { title: 'Римские шторы', desc: 'Элегантный минимализм', price: 'от 15 000 ₽', style: 'minimalist' },
-                  { title: 'Японские панели', desc: 'Современное решение', price: 'от 20 000 ₽', style: 'modern' },
-                  { title: 'Французские шторы', desc: 'Роскошь и изящество', price: 'от 30 000 ₽', style: 'classic' },
-                  { title: 'Австрийские шторы', desc: 'Волнообразные складки', price: 'от 28 000 ₽', style: 'classic' },
-                  { title: 'Рулонные шторы', desc: 'Практичность и стиль', price: 'от 12 000 ₽', style: 'minimalist' }
-                ].map((item, idx) => (
-                  <Card key={idx} className="overflow-hidden hover-lift cursor-pointer group">
-                    <div className="h-64 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon name="Image" size={64} className="text-primary/20 group-hover:scale-110 transition-transform" />
-                      </div>
+          <div className="w-full">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: 'Классические портьеры', desc: 'Тяжелые ткани с драпировкой', price: 'от 25 000 ₽', style: 'classic' },
+                { title: 'Римские шторы', desc: 'Элегантный минимализм', price: 'от 15 000 ₽', style: 'minimalist' },
+                { title: 'Японские панели', desc: 'Современное решение', price: 'от 20 000 ₽', style: 'modern' },
+                { title: 'Французские шторы', desc: 'Роскошь и изящество', price: 'от 30 000 ₽', style: 'classic' },
+                { title: 'Австрийские шторы', desc: 'Волнообразные складки', price: 'от 28 000 ₽', style: 'classic' },
+                { title: 'Рулонные шторы', desc: 'Практичность и стиль', price: 'от 12 000 ₽', style: 'minimalist' }
+              ].map((item, idx) => (
+                <Card key={idx} className="overflow-hidden hover-lift cursor-pointer group">
+                  <div className="h-64 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Icon name="Image" size={64} className="text-primary/20 group-hover:scale-110 transition-transform" />
                     </div>
-                    <CardHeader>
-                      <CardTitle className="flex items-center justify-between">
-                        {item.title}
-                        <Badge variant="outline">{item.style}</Badge>
-                      </CardTitle>
-                      <CardDescription>{item.desc}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-primary">{item.price}</span>
-                        <Button variant="outline" size="sm">
-                          <Icon name="Eye" size={16} className="mr-2" />
-                          Подробнее
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {item.title}
+                      <Badge variant="outline">{item.style}</Badge>
+                    </CardTitle>
+                    <CardDescription>{item.desc}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl font-bold text-primary">{item.price}</span>
+                      <Button variant="outline" size="sm">
+                        <Icon name="Eye" size={16} className="mr-2" />
+                        Подробнее
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
